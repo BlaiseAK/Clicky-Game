@@ -1,18 +1,18 @@
 ul {
     margin: auto;
     width: 100%;
-
     list-style-type: none;
     height: 60px;
     align-content: center;
-
+    z-index: 2;
 }
 
 li {
     display: inline;
     line-height: 50px;
-    font-size: 45px;
-    margin: 5px;
+    font-size: 350%;
+    margin: .5%;
+    z-index: 2;
 }
 
 nav {
@@ -20,16 +20,21 @@ nav {
     top: 0px;
     background-color: #ffd700;
     width: 100%;
+    height: 8%;
+    font-family: 'Yatra One', cursive;
+    z-index: 2;
 }
 
 .leeft {
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
 }
 
 .riight {
     position: fixed;
-    top: 0px;
-    right: 0px;
+    top: 0%;
+    right: 0%;
+    z-index: 2;
 }

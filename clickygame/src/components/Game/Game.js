@@ -1,13 +1,12 @@
 import React from "react";
 import "./Game.css";
 
-const Game = () => (
-    <div>
+const Game = props => (
 
+            <span onClick={() => props.clickedHouse(props.id)} className="clicked">
+            <img alt={props.houseName} src={props.image} />
+            </span>
 
-
-
-    </div>
 )
 
 export default Game;
