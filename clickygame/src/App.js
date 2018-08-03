@@ -9,11 +9,8 @@ class App extends Component {
   state = {
     topScore: 0,
     score: 0,
-    houseOrder: houses,
-    clicked: []
+    houseOrder: houses
   };
-
-  // [...this.state.clicked, id]
   
   shuffle = houseOrder => {
     let newHouseOrder = [];
@@ -28,48 +25,53 @@ class App extends Component {
   };
 
   clickedHouse = id => {
-
+    let clicked = [];
     // if they mis click but have a higher score
-    if(this.state.clicked.includes(id) && (this.state.score>=this.state.topScore)) {
+    if(clicked.includes(id) && (this.state.score>=this.state.topScore)) {
       console.log(id);
-
+      console.log(clicked);
       this.setState({
         topScore: this.state.score,
         score: 0,
-        houseOrder: this.shuffle(this.state.houseOrder),
-        clicked: []
+        houseOrder: this.shuffle(this.state.houseOrder)
       });
+      clicked = [];
     }
     // if they misclick but don't have a higher score
-    else if (this.state.clicked.includes(id) && (this.state.score<this.state.topScore)) {
+    else if (clicked.includes(id) && (this.state.score<this.state.topScore)) {
       console.log(id);
-
+      console.log(clicked);
       this.setState({
         score: 0,
-        houseOrder: this.shuffle(this.state.houseOrder),
-        clicked: []
+        houseOrder: this.shuffle(this.state.houseOrder)
       });
+      clicked = [];
     }
     // if chose correctly and score is greater than topScore
-    else if (!this.state.clicked.includes(id) && (this.state.score>=this.state.topScore)) {
-
+    else if (!clicked.includes(id) && (this.state.score>=this.state.topScore)) {
+      clicked.push(id);
+      console.log(clicked);
       this.setState({
         score: this.state.score + 1,
         topScore: this.state.score + 1,
-        houseOrder: this.shuffle(this.state.houseOrder),
-        clicked: [...this.state.clicked, id]
+        houseOrder: this.shuffle(this.state.houseOrder)
       });
     }
     // if chose correctly and score is less than/equal to topScore
-    else if (!this.state.clicked.includes(id) && (this.state.score<this.state.topScore)) {
-
+    else if (!clicked.includes(id) && (this.state.score<this.state.topScore)) {
+      clicked.push(id);
+      console.log(clicked);
       this.setState({
         score: this.state.score + 1,
-        houseOrder: this.shuffle(this.state.houseOrder),
-        clicked: [...this.state.clicked, id]
+        houseOrder: this.shuffle(this.state.houseOrder)
       })
     }
-  }
+
+
+    // this.setState({
+    //   houseOrder: this.shuffle(this.state.houseOrder)
+    // });
+}
   
   
   
